@@ -4,8 +4,8 @@ using UnityEngine;
 namespace StreamongUS.Patches
 {
     /// <summary>
-    /// Patch for MeetingHud to change local imposter name color to white
-    /// This prevents stream sniping by hiding the red imposter name color
+    /// Patch for MeetingHud to change local impostor name color to white
+    /// This prevents stream sniping by hiding the red impostor name color
     /// </summary>
     [HarmonyPatch(typeof(MeetingHud))]
     public static class MeetingHudPatch
@@ -32,7 +32,7 @@ namespace StreamongUS.Patches
             if (localPlayer == null || localPlayer.Data == null || localPlayer.Data.Role == null)
                 return;
 
-            // Check if local player is an imposter
+            // Check if local player is an impostor
             if (!localPlayer.Data.Role.IsImpostor)
                 return;
 

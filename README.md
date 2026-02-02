@@ -1,11 +1,11 @@
 # StreamongUS
 
-A mod for Among Us (Xbox PC Game Pass) that changes the local player's imposter name color from red to white on the voting/meeting screen to prevent stream sniping.
+A mod for Among Us (Xbox PC Game Pass) that changes the local player's impostor name color from red to white on the voting/meeting screen to prevent stream sniping.
 
 ## Features
 
 - **Client-side only**: Changes are only visible to you, not affecting gameplay or other players
-- **Stream-safe**: Hides the red imposter name color that could give away your role to stream viewers
+- **Stream-safe**: Hides the red impostor name color that could give away your role to stream viewers
 - **Non-intrusive**: Only affects visual display during meetings, doesn't modify game logic
 
 ## Installation
@@ -24,15 +24,15 @@ A mod for Among Us (Xbox PC Game Pass) that changes the local player's imposter 
 
 ## How It Works
 
-When you're the imposter and a meeting is called:
+When you're the impostor and a meeting is called:
 - Normally, your name appears in **red** on the voting screen
 - With this mod, your name appears in **white** instead
-- This prevents stream viewers from seeing the red name and knowing you're the imposter
+- This prevents stream viewers from seeing the red name and knowing you're the impostor
 
 ### Technical Details
 
 The mod uses Harmony to patch the `MeetingHud.Update` method:
-- Detects when local player is an imposter
+- Detects when local player is an impostor
 - Locates the local player's name text in the meeting UI
 - Changes the color to white (#FFFFFF)
 - Only affects client-side rendering

@@ -62,7 +62,7 @@ Or you can find it by:
 ### Step 5: Test the Mod
 
 1. Start or join a game
-2. Become the imposter (or wait until you get imposter role)
+2. Become the impostor (or wait until you get impostor role)
 3. When a meeting is called, your name should appear in **white** instead of red
 4. Other players will still see the normal colors - this is client-side only!
 
@@ -79,7 +79,7 @@ Or you can find it by:
 - Verify BepInEx initialized correctly (console should appear)
 
 ### Name is still red
-- The mod only works when YOU are the imposter
+- The mod only works when YOU are the impostor
 - Make sure the mod loaded successfully (check logs)
 - The color changes during meetings/voting only
 

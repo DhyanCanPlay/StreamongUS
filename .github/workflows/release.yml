@@ -1,0 +1,54 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+      
+      - name: Restore dependencies
+        run: dotnet restore
+      
+      - name: Build Release
+        run: dotnet build -c Release --no-restore
+      
+      - name: Extract version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+      - name: Create release package
+        run: |
+          mkdir -p release
+          cp bin/Release/netstandard2.1/StreamongUS.dll release/
+          cp README.md release/
+          cp INSTALLATION.md release/
+          cp LICENSE release/
+          cd release
+          zip -r StreamongUS-v${{ steps.get_version.outputs.VERSION }}.zip .
+          
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release/StreamongUS-v${{ steps.get_version.outputs.VERSION }}.zip
+            bin/Release/netstandard2.1/StreamongUS.dll
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,23 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+*.user
+*.suo
+
+# IDE folders
+.vs/
+.vscode/
+.idea/
+
+# Dependencies
+lib/
+packages/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output
+*.log

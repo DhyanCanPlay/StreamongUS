@@ -1,5 +1,9 @@
 # StreamongUS
 
+[![Release](https://img.shields.io/github/v/release/DhyanCanPlay/StreamongUS)](https://github.com/DhyanCanPlay/StreamongUS/releases/latest)
+[![License](https://img.shields.io/github/license/DhyanCanPlay/StreamongUS)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-Standard%202.1-blue)](https://dotnet.microsoft.com/)
+
 A mod for Among Us (Xbox PC Game Pass) that changes the local player's impostor name color from red to white on the voting/meeting screen to prevent stream sniping.
 
 ## Features
@@ -18,9 +22,11 @@ A mod for Among Us (Xbox PC Game Pass) that changes the local player's impostor 
 ### Steps
 
 1. Install BepInEx IL2CPP in your Among Us game directory
-2. Download the latest release of StreamongUS
+2. Download the latest release of StreamongUS from the [Releases page](https://github.com/DhyanCanPlay/StreamongUS/releases/latest)
 3. Extract `StreamongUS.dll` to `BepInEx/plugins/` folder
 4. Launch the game
+
+For detailed installation instructions, see [INSTALLATION.md](INSTALLATION.md)
 
 ## How It Works
 
@@ -69,6 +75,12 @@ The compiled DLL will be in `bin/Release/netstandard2.1/StreamongUS.dll`
 - Does not provide any gameplay advantages
 - Only changes visual appearance for the local player
 - Compatible with Game Pass file structure and permissions
+
+## Releases
+
+See the [Releases page](https://github.com/DhyanCanPlay/StreamongUS/releases) for downloads and version history.
+
+For information about creating releases, see [RELEASE_GUIDE.md](RELEASE_GUIDE.md).
 
 ## Disclaimer
 

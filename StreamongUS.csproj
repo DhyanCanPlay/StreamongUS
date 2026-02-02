@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>StreamongUS</AssemblyName>
+    <RootNamespace>StreamongUS</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>Among Us mod to change local impostor name color to white on meeting screen</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.674" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2024.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

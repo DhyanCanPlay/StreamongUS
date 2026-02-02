@@ -17,13 +17,19 @@ namespace StreamongUS.Patches
         [HarmonyPostfix]
         public static void UpdatePostfix(MeetingHud __instance)
         {
-            // Only process if we're in a meeting
-            if (__instance == null || __instance.state != MeetingHud.VoteStates.Discussion && __instance.state != MeetingHud.VoteStates.Voted && __instance.state != MeetingHud.VoteStates.NotVoted)
+            // Safety checks
+            if (__instance == null)
+                return;
+            
+            // Only process if we're in a meeting (any active state)
+            if (__instance.state != MeetingHud.VoteStates.Discussion && 
+                __instance.state != MeetingHud.VoteStates.Voted && 
+                __instance.state != MeetingHud.VoteStates.NotVoted)
                 return;
 
             // Get local player
             var localPlayer = PlayerControl.LocalPlayer;
-            if (localPlayer == null)
+            if (localPlayer == null || localPlayer.Data == null || localPlayer.Data.Role == null)
                 return;
 
             // Check if local player is an imposter
@@ -31,6 +37,9 @@ namespace StreamongUS.Patches
                 return;
 
             // Find the local player's vote area (their name display in the meeting)
+            if (__instance.playerStates == null)
+                return;
+                
             foreach (var playerVoteArea in __instance.playerStates)
             {
                 if (playerVoteArea == null)
